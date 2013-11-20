@@ -114,58 +114,58 @@ class DefaultHttpClient implements HttpClient {
 
   @Override
   HttpClient getNow(String uri, MultiMap headers, Closure responseHandler) {
-    jClient.getNow(uri, DefaultMultiMap.toJavaMultiMap(headers), {responseHandler(new DefaultHttpClientResponse(it))} as Handler)
+    jClient.getNow(uri, DefaultMultiMap.toJavaMultiMap(headers), {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))} )
     this
   }
 
   @Override
   HttpClientRequest options(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.options(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.options(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest get(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.get(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.get(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest head(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.head(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.head(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest post(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.post(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.post(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest put(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.put(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.put(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest delete(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.delete(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.delete(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest trace(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.trace(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.trace(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest connect(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.connect(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.connect(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest patch(String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.patch(uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.patch(uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
   HttpClientRequest request(String method, String uri, Closure responseHandler) {
-    return new DefaultHttpClientRequest(jClient.request(method, uri, {responseHandler(new DefaultHttpClientResponse((JHttpClientResponse) it))} as Handler))
+    return new DefaultHttpClientRequest(jClient.request(method, uri, {JHttpClientResponse it -> responseHandler(new DefaultHttpClientResponse(it))}))
   }
 
   @Override
