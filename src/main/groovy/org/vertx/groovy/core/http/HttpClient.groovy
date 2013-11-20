@@ -206,4 +206,15 @@ interface HttpClient extends ClientSSLSupport<HttpClient>, TCPSupport<HttpClient
    * @return true if this client will validate the remote server's certificate hostname against the requested host
    */
   boolean isVerifyHost()
+
+  /**
+   * Sets the maximum websocket frame size in bytes. Default is 65536 bytes.
+   * @param maxSize The size in bytes
+   */
+  HttpClient setMaxWebSocketFrameSize(int maxSize)
+ 
+   /**
+    * Get the  maximum websocket frame size in bytes.
+    */
+  int getMaxWebSocketFrameSize()
 }
